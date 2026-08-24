@@ -149,7 +149,7 @@ public class Main {
                         if (!number.isEmpty()) {
                             int cost = Integer.parseInt(number);
 
-                            if (cost <= 10) {
+                            if (cost <= 0) {
                                 goldAttack.get(0).click();
                                 sleep(1200);
 
