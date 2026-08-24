@@ -160,7 +160,7 @@ public class Main2 {
                         if (!digits.isEmpty()) {
                             int goldCost = Integer.parseInt(digits);
 
-                            if (goldCost <= 10) {
+                            if (goldCost <= 0) {
                                 // Click gold attack button
                                 WebElement parentLink = goldBtnSpans.get(0).findElement(By.xpath("./ancestor::a"));
                                 js.executeScript("arguments[0].click();", parentLink);
