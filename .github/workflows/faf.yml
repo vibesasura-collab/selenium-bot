@@ -8,8 +8,8 @@ on:
         required: true
         default: "RUN"
   schedule:
-    # Runs automatically every 6 hours (UTC)
-    - cron: '0 */6 * * *'
+    # Runs automatically every hour at minute 0 (UTC)
+    - cron: '0 * * * *'
 
 permissions:
   contents: read
