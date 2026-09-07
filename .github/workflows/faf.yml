@@ -7,6 +7,9 @@ on:
         description: "Type RUN to start faf bot"
         required: true
         default: "RUN"
+  schedule:
+    # Runs automatically every 6 hours (UTC)
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: read
@@ -35,7 +38,7 @@ jobs:
         run: |
           echo "Event: ${{ github.event_name }}"
           echo "Mode: ${{ github.event.inputs.run_mode }}"
-          if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ github.event.inputs.run_mode }}" != "RUN" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.run_mode }}" != "RUN" ]; then
             echo "Not authorized run. Exiting."
             exit 1
           fi
